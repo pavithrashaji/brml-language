@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xtext.example.brml.BRML
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.example.brml.BRML
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.example.brml.BRML; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.34.0",
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: org.xtext.example.brml.bRML.impl,
+ org.xtext.example.brml.bRML,
+ org.xtext.example.brml,
+ org.xtext.example.brml.validation,
+ org.xtext.example.brml.bRML.util,
+ org.xtext.example.brml.services,
+ org.xtext.example.brml.parser.antlr,
+ org.xtext.example.brml.scoping,
+ org.xtext.example.brml.parser.antlr.internal,
+ org.xtext.example.brml.serializer,
+ org.xtext.example.brml.generator
+Import-Package: org.apache.log4j

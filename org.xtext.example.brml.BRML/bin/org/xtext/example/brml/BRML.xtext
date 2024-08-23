@@ -1,0 +1,51 @@
+grammar org.xtext.example.brml.BRML with org.eclipse.xtext.common.Terminals
+
+generate bRML "http://www.xtext.org/example/brml/BRML"
+
+Model:
+   (operations+=Operation)*;
+
+Operation:
+   Route | Bus | Stop | AddRouteStop | DeleteRouteStop | DelRoute | DelBus | DelStop | PrintRoute | PrintBus | PrintStop;
+
+Stop:
+   'ADD STOP' stop=STRING 'AT' location=Location;
+
+DelStop:
+   'DELETE STOP' stop=[Stop|STRING];
+      
+Route:
+	'ADD ROUTE' route=INT ':' (routeStops+=RouteStop)+;
+	
+RouteStop:
+   routestop=[Stop|STRING];
+
+Bus:
+   'ADD BUS' bus=STRING 'DRIVEN BY' driver=STRING 'ON ROUTE' route=[Route];
+
+DelRoute:
+   'DELETE ROUTE' route=[Route];
+
+DelBus:
+   'DELETE BUS' bus=[Bus] bus=[Bus|STRING];
+
+Location:
+   'LOCATION' latitude=STRING ',' longitude=STRING;
+
+AddRouteStop:
+   'ADD ROUTE STOP' routeStop=[Stop] 'TO' route=[Route];
+
+DeleteRouteStop:
+   'DELETE ROUTE STOP' routeStop=[Stop] 'FROM' route=[Route];
+  
+
+PrintRoute:
+   'PRINT ROUTE' route=[Route];
+
+PrintBus:
+   'PRINT BUS' bus=[Bus];
+
+PrintStop:
+   'PRINT STOP' stop=[Stop];
+   
+

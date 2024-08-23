@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bRML" nsURI="http://www.xtext.org/example/brml/BRML" nsPrefix="bRML">
+  <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
+        eType="#//Operation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Stop" eSuperTypes="#//Operation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stop" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="#//Location"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DelStop" eSuperTypes="#//Operation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stop" eType="#//Stop"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Route" eSuperTypes="#//Operation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="route" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="routeStops" upperBound="-1"
+        eType="#//RouteStop" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RouteStop">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="routestop" eType="#//Stop"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Bus" eSuperTypes="#//Operation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="driver" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="route" eType="#//Route"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DelRoute" eSuperTypes="#//Operation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="route" eType="#//Route"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DelBus" eSuperTypes="#//Operation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bus" eType="#//Bus"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Location">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="latitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="longitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddRouteStop" eSuperTypes="#//Operation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="routeStop" eType="#//Stop"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="route" eType="#//Route"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeleteRouteStop" eSuperTypes="#//Operation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="routeStop" eType="#//Stop"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="route" eType="#//Route"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrintRoute" eSuperTypes="#//Operation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="route" eType="#//Route"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrintBus" eSuperTypes="#//Operation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bus" eType="#//Bus"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrintStop" eSuperTypes="#//Operation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stop" eType="#//Stop"/>
+  </eClassifiers>
+</ecore:EPackage>
